@@ -5,9 +5,8 @@
  */
 package it.localhost.app.web.tinyrestfakegen.uri;
 
+import com.google.gson.Gson;
 import it.localhost.app.web.tinyrestfakegen.dataaccess.CitiesDAOImpl;
-import it.localhost.app.web.tinyrestfakegen.model.Cities;
-import java.util.Iterator;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -41,18 +40,20 @@ public class CitiesResource {
         //TODO return proper representation object
         
         CitiesDAOImpl dao = new CitiesDAOImpl();
-        System.out.println("size: " + dao.getAllCitiesName().size());
-        Iterator<Cities> itr = dao.getAllCitiesName().iterator();
-        StringBuilder sb = new StringBuilder();
-        sb.append("{\"array\":[");
-        while(itr.hasNext()){
-            sb.append("\"").append(itr.next().getName());
-            if(itr.hasNext()){
-                sb.append("\",");
-            }
-        }
-        sb.append("\"]}");
-        return sb.toString();
+//        Iterator<Cities> itr = dao.getAllCitiesName().iterator();
+//        StringBuilder sb = new StringBuilder();
+//        sb.append("{\"array\":[");
+//        while(itr.hasNext()){
+//            sb.append("\"").append(itr.next().getName());
+//            if(itr.hasNext()){
+//                sb.append("\",");
+//            }
+//        }
+//        sb.append("\"]}");
+//        return sb.toString();
+        Gson gson = new Gson();
+        
+        return gson.toJson(dao.getAllCitiesName());
     }
 
     /**

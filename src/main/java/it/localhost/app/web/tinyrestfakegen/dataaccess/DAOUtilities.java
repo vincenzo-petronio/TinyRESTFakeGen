@@ -28,7 +28,8 @@ public final class DAOUtilities {
         List list = new ArrayList();
         try {
             InputStream inputStream = DAOUtilities.class.getResourceAsStream(fileName);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream), Constants.BUFFEREDREADER_BUFFER_SIZE);
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(inputStream), Constants.BUFFEREDREADER_BUFFER_SIZE);
             String line;
             while ((line = reader.readLine()) != null) {
                 list.add(line);

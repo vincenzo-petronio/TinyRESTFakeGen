@@ -12,5 +12,10 @@ import java.util.List;
  * DAO interface for Cities
  */
 public interface CitiesDAO {
+    
+    /**
+     * 
+     * @return List of Cities
+     */
     public List<Cities> getAllCitiesName();
 }
