@@ -14,6 +14,9 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.core.MediaType;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * REST Web Service for Cities
@@ -23,6 +26,7 @@ public class CitiesResource {
 
     @Context
     private UriInfo context;
+    Logger logger = LogManager.getRootLogger();
 
     /**
      * Creates a new instance of CitiesResource
@@ -35,24 +39,11 @@ public class CitiesResource {
      * @return an instance of java.lang.String
      */
     @GET
-    @Produces("application/json")
+    @Produces(MediaType.APPLICATION_JSON)
     public String getJson() {
-        //TODO return proper representation object
-        
         CitiesDAOImpl dao = new CitiesDAOImpl();
-//        Iterator<Cities> itr = dao.getAllCitiesName().iterator();
-//        StringBuilder sb = new StringBuilder();
-//        sb.append("{\"array\":[");
-//        while(itr.hasNext()){
-//            sb.append("\"").append(itr.next().getName());
-//            if(itr.hasNext()){
-//                sb.append("\",");
-//            }
-//        }
-//        sb.append("\"]}");
-//        return sb.toString();
         Gson gson = new Gson();
-        
+        logger.debug("Collection size=" + Integer.toString(dao.getAllCitiesName().size()));
         return gson.toJson(dao.getAllCitiesName());
     }
 
@@ -62,7 +53,7 @@ public class CitiesResource {
      * @return an HTTP response with content of the updated or created resource.
      */
     @PUT
-    @Consumes("application/json")
+    @Consumes(MediaType.APPLICATION_JSON)
     public void putJson(String content) {
     }
 }
