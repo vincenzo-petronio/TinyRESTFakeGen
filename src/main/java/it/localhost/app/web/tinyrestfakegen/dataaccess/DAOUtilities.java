@@ -6,6 +6,7 @@
 package it.localhost.app.web.tinyrestfakegen.dataaccess;
 
 import it.localhost.app.web.tinyrestfakegen.Constants;
+import it.localhost.app.web.tinyrestfakegen.exception.DAOException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,17 +15,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Utilities for DAO Patter
  */
 public final class DAOUtilities {
-    
+
     /**
-     * Legge un file e restituisce una lista di String, una per ogni riga letta dal file.
-     * 
+     * Legge un file e restituisce una lista di String, una per ogni riga letta
+     * dal file.
+     *
      * @param fileName Nome del file delle risorse da leggere.
-     * @return ArrayList 
+     * @return ArrayList
+     * @throws DAOException
      */
-    public static List read(String fileName) {
+    public static List read(String fileName) throws DAOException {
         List list = new ArrayList();
         try {
             InputStream inputStream = DAOUtilities.class.getResourceAsStream(fileName);
@@ -35,10 +38,9 @@ public final class DAOUtilities {
                 list.add(line);
             }
         } catch (IOException iOException) {
-            // TODO gestire eccezione!
-            System.out.println("IOException\n" + iOException.getMessage());
+            throw new DAOException(iOException.getMessage());
         } catch (Exception e) {
-            System.out.println("Exception\n" + e.getMessage());
+            throw new DAOException(e.getMessage());
         }
         return list;
     }

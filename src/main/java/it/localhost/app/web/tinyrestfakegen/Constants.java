@@ -6,11 +6,12 @@
 package it.localhost.app.web.tinyrestfakegen;
 
 /**
- *Hard-Coded constants
+ * Hard-Coded constants
  */
 public class Constants {
+
     public static final int BUFFEREDREADER_BUFFER_SIZE = 1000;
-    
+
     // RESOURCES
     public static final String RES_CITIES = "/Cities";
 }

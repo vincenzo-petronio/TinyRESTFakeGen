@@ -9,6 +9,7 @@ package it.localhost.app.web.tinyrestfakegen.model;
  * VO for Cities
  */
 public class Cities {
+
     private String name;
 
     public String getName() {
