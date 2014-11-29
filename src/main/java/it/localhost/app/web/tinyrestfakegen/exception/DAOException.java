@@ -17,9 +17,9 @@ public class DAOException extends Exception {
     }
 
     /**
-     * Construct a DAOException with an error message
+     * Constructs a DAOException with an error message
      *
-     * @param message
+     * @param message The detail message of the exception.
      */
     public DAOException(String message) {
         super(message);
