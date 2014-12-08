@@ -14,4 +14,6 @@ public class Constants {
 
     // RESOURCES
     public static final String RES_CITIES = "/Cities";
+    public static final String RES_COUNTRIES = "/Countries";
+    public static final String RES_EXCHANGES = "/Exchanges";
 }

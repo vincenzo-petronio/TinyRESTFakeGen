@@ -6,8 +6,8 @@
 package it.localhost.app.web.tinyrestfakegen.uri;
 
 import com.google.gson.Gson;
-import it.localhost.app.web.tinyrestfakegen.dataaccess.CitiesDAO;
-import it.localhost.app.web.tinyrestfakegen.dataaccess.CitiesDAOImplFF;
+import it.localhost.app.web.tinyrestfakegen.dataaccess.CountriesDAO;
+import it.localhost.app.web.tinyrestfakegen.dataaccess.CountriesDAOImplFF;
 import it.localhost.app.web.tinyrestfakegen.exception.DAOException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -16,43 +16,40 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * REST Web Service for Cities
+ * REST Web Service
  */
-@Path("cities")
-public class CitiesResource {
+@Path("countries")
+public class CountriesResource {
 
     @Context
     private UriInfo context;
     private static Logger logger = LogManager.getRootLogger();
 
     /**
-     * Creates a new instance of CitiesResource
+     * Creates a new instance of CountriesResource
      */
-    public CitiesResource() {
+    public CountriesResource() {
     }
 
     /**
-     * Retrieves representation of an instance of
-     * it.localhost.app.web.tinyrestfakegen.uri.CitiesResource
-     *
+     * Retrieves representation of an instance of it.localhost.app.web.tinyrestfakegen.uri.CountriesResource
      * @return an instance of java.lang.String
      */
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces("application/json")
     public String getJson() {
-        CitiesDAO dao = new CitiesDAOImplFF();
+        CountriesDAO dao = new CountriesDAOImplFF();
         Gson gson = new Gson();
         String json = null;
 
         try {
-            json = gson.toJson(dao.getAllCitiesName());
+            json = gson.toJson(dao.getAllCountries());
             if (null != json && !"".equalsIgnoreCase(json)) {
                 return json;
             } else {
@@ -66,13 +63,12 @@ public class CitiesResource {
     }
 
     /**
-     * PUT method for updating or creating an instance of CitiesResource
-     *
+     * PUT method for updating or creating an instance of CountriesResource
      * @param content representation for the resource
      * @return an HTTP response with content of the updated or created resource.
      */
     @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
+    @Consumes("application/json")
     public void putJson(String content) {
     }
 }

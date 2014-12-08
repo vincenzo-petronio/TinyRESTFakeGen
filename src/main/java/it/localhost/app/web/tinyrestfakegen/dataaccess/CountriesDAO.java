@@ -6,18 +6,18 @@
 package it.localhost.app.web.tinyrestfakegen.dataaccess;
 
 import it.localhost.app.web.tinyrestfakegen.exception.DAOException;
-import it.localhost.app.web.tinyrestfakegen.model.City;
+import it.localhost.app.web.tinyrestfakegen.model.Country;
 import java.util.List;
 
 /**
- * DAO interface for City
+ * DAO interface for Country
  */
-public interface CitiesDAO {
+public interface CountriesDAO {
 
     /**
      *
-     * @return List of City
-     * @throws DAOException data access error
+     * @return List<Country>
+     * @throws DAOException
      */
-    public List<City> getAllCitiesName() throws DAOException;
+    public List<Country> getAllCountries() throws DAOException;
 }

@@ -6,9 +6,9 @@
 package it.localhost.app.web.tinyrestfakegen.model;
 
 /**
- * VO for Cities
+ * VO for City
  */
-public class Cities {
+public class City {
 
     private String name;
 
