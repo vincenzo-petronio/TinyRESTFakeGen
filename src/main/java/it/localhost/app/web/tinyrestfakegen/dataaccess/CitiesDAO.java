@@ -19,5 +19,5 @@ public interface CitiesDAO {
      * @return List of City
      * @throws DAOException data access error
      */
-    public List<City> getAllCitiesName() throws DAOException;
+    public List<City> getAllCities() throws DAOException;
 }

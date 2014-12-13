@@ -52,7 +52,7 @@ public class CitiesResource {
         String json = null;
 
         try {
-            json = gson.toJson(dao.getAllCitiesName());
+            json = gson.toJson(dao.getAllCities());
             if (null != json && !"".equalsIgnoreCase(json)) {
                 return json;
             } else {

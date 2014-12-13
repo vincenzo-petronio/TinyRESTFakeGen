@@ -9,6 +9,7 @@ import it.localhost.app.web.tinyrestfakegen.Constants;
 import it.localhost.app.web.tinyrestfakegen.exception.DAOException;
 import it.localhost.app.web.tinyrestfakegen.model.City;
 import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 /**
@@ -17,12 +18,29 @@ import java.util.stream.Collectors;
 public class CitiesDAOImplFF implements CitiesDAO {
 
     @Override
-    public List<City> getAllCitiesName() throws DAOException {
+    public List<City> getAllCities() throws DAOException {
 
-        List<String> listString = DAOUtilities.read(Constants.RES_CITIES);
-        List<City> listCities = listString.stream().map(s -> {
+        List<String> listStringCities = DAOUtilities.read(Constants.RES_CITIES);
+        List<String> listStringCoordinates = DAOUtilities.read(Constants.RES_COORDINATES);
+        List<City> listCities = listStringCities.stream().map(s -> {
+            String latlon = listStringCoordinates.get(
+                    new Random().nextInt(
+                            listStringCoordinates.size()
+                    )
+            );
             City c = new City();
             c.setName(s);
+            c.setPopulation(new Random().nextInt(0x1312d00));
+            c.setLatitude(
+                    Double.parseDouble(
+                            latlon.split(",")[0]
+                    )
+            );
+            c.setLongitude(
+                    Double.parseDouble(
+                            latlon.split(",")[1]
+                    )
+            );
             return c;
         }).collect(Collectors.toList());
 
