@@ -1,10 +1,13 @@
 <html>
 <body>
-    <h2>Jersey RESTful Web Application!</h2>
-    <p><a href="api/v1/myresource">Jersey resource</a>
-    <p><a href="api/v1/cities">Cities</a>
-    <p><a href="api/v1/countries">Countries</a>
-    <p>Visit <a href="http://jersey.java.net">Project Jersey website</a>
-    for more information on Jersey!
+    <h2>Tiny REST Fake Gen</h2>
+    <ul>
+        <li><a href="api/v1/about">About</a></li>
+        <li><a href="api/v1/countries">Countries</a>
+            <ul>
+                <li><a href="api/v1/countries/cities">Cities</a></li>
+            </ul>
+        </li>
+    </ul>
 </body>
 </html>

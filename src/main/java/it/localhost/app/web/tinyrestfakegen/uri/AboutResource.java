@@ -1,15 +1,16 @@
-package it.localhost.app.web.tinyrestfakegen;
+package it.localhost.app.web.tinyrestfakegen.uri;
 
+import it.localhost.app.web.tinyrestfakegen.Constants;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 /**
- * Root resource (exposed at "myresource" path)
+ * Root resource (exposed at "about" path)
  */
-@Path("myresource")
-public class MyResource {
+@Path("/about")
+public class AboutResource {
 
     /**
      * Method handling HTTP GET requests. The returned object will be sent to
@@ -20,6 +21,6 @@ public class MyResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
-        return "Got it!";
+        return "v" + Constants.VERSION;
     }
 }

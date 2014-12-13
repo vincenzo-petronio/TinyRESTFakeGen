@@ -10,6 +10,13 @@ package it.localhost.app.web.tinyrestfakegen;
  */
 public class Constants {
 
+    /**
+     * VERSION=MAJOR.MINOR.PATCH
+     *
+     * @see <a href="http://semver.org/">Semantic Versioning</a>
+     */
+    public static final String VERSION = "0.1.1";
+
     public static final int BUFFEREDREADER_BUFFER_SIZE = 1000;
 
     // RESOURCES

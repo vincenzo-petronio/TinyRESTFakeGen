@@ -25,7 +25,7 @@ import org.apache.logging.log4j.Logger;
 /**
  * REST Web Service for Cities
  */
-@Path("cities")
+@Path("countries/cities")
 public class CitiesResource {
 
     @Context
