@@ -50,16 +50,16 @@ public class CountriesResource {
 
         try {
             json = gson.toJson(dao.getAllCountries());
-            if (null != json && !"".equalsIgnoreCase(json)) {
-                return json;
-            } else {
+            if (null == json || "".equalsIgnoreCase(json)) {
                 logger.error(Response.Status.NOT_FOUND);
                 throw new WebApplicationException(Response.Status.NOT_FOUND);
-            }
+            } 
         } catch (DAOException dAOException) {
             logger.error(dAOException.getMessage());
             throw new WebApplicationException(Response.Status.INTERNAL_SERVER_ERROR);
         }
+        
+        return json;
     }
 
     /**
