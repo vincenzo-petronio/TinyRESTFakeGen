@@ -25,6 +25,7 @@ public class CountriesDAOImplFF implements CountriesDAO {
         List<Country> listCountries;
         listCountries = listStringCountries.stream().map(s -> {
             Country c = new Country();
+            c.setId(DAOUtilities.stringToHex(s));
             c.setCapitalCity(listStringCities.get(new Random().nextInt(listStringCities.size())));
             c.setExchange(listStringExchanges.get(new Random().nextInt(listStringExchanges.size())));
             c.setName(s);

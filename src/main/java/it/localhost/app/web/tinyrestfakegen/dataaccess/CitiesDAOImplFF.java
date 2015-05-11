@@ -29,6 +29,7 @@ public class CitiesDAOImplFF implements CitiesDAO {
                     )
             );
             City c = new City();
+            c.setId(DAOUtilities.stringToHex(s));
             c.setName(s);
             c.setPopulation(new Random().nextInt(0x1312d00));
             c.setLatitude(

@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Utilities for DAO Patter
+ * Utilities for DAO Pattern
  */
 public final class DAOUtilities {
 
@@ -43,5 +43,27 @@ public final class DAOUtilities {
             throw new DAOException(e.getMessage());
         }
         return list;
+    }
+
+    /**
+     * Converte una String in un HEX con 5 digit
+     *
+     * @param strIn
+     * @return String
+     */
+    public static String stringToHex(String strIn) {
+        char[] chars = strIn.toCharArray();
+        StringBuilder hexOut = new StringBuilder();
+        
+        for (int i = 0; i < chars.length; i++) {
+            hexOut.append(Integer.toHexString((int) chars[i]));
+        }
+        
+        try {
+            return hexOut.toString().substring(0, 5).toUpperCase();
+        } catch (StringIndexOutOfBoundsException siobe) {
+            // TODO log exception
+            return hexOut.toString().toUpperCase();
+        }
     }
 }
