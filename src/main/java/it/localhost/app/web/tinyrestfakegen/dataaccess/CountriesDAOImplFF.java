@@ -22,10 +22,11 @@ public class CountriesDAOImplFF implements CountriesDAO {
         List<String> listStringCountries = DAOUtilities.read(Constants.RES_COUNTRIES);
         List<String> listStringCities = DAOUtilities.read(Constants.RES_CITIES);
         List<String> listStringExchanges = DAOUtilities.read(Constants.RES_EXCHANGES);
+        List<String> listStringHexadecimals = DAOUtilities.read(Constants.RES_HEXADECIMALS);
         List<Country> listCountries;
         listCountries = listStringCountries.stream().map(s -> {
             Country c = new Country();
-            c.setId(DAOUtilities.stringToHex(s));
+            c.setId(listStringHexadecimals.get(new Random().nextInt(listStringHexadecimals.size())));
             c.setCapitalCity(listStringCities.get(new Random().nextInt(listStringCities.size())));
             c.setExchange(listStringExchanges.get(new Random().nextInt(listStringExchanges.size())));
             c.setName(s);

@@ -44,26 +44,4 @@ public final class DAOUtilities {
         }
         return list;
     }
-
-    /**
-     * Converte una String in un HEX con 5 digit
-     *
-     * @param strIn
-     * @return String
-     */
-    public static String stringToHex(String strIn) {
-        char[] chars = strIn.toCharArray();
-        StringBuilder hexOut = new StringBuilder();
-        
-        for (int i = 0; i < chars.length; i++) {
-            hexOut.append(Integer.toHexString((int) chars[i]));
-        }
-        
-        try {
-            return hexOut.toString().substring(0, 5).toUpperCase();
-        } catch (StringIndexOutOfBoundsException siobe) {
-            // TODO log exception
-            return hexOut.toString().toUpperCase();
-        }
-    }
 }

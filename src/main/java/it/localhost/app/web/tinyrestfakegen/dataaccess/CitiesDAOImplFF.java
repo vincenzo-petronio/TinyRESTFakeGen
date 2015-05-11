@@ -22,6 +22,7 @@ public class CitiesDAOImplFF implements CitiesDAO {
 
         List<String> listStringCities = DAOUtilities.read(Constants.RES_CITIES);
         List<String> listStringCoordinates = DAOUtilities.read(Constants.RES_COORDINATES);
+        List<String> listStringHexadecimals = DAOUtilities.read(Constants.RES_HEXADECIMALS);
         List<City> listCities = listStringCities.stream().map(s -> {
             String latlon = listStringCoordinates.get(
                     new Random().nextInt(
@@ -29,7 +30,7 @@ public class CitiesDAOImplFF implements CitiesDAO {
                     )
             );
             City c = new City();
-            c.setId(DAOUtilities.stringToHex(s));
+            c.setId(listStringHexadecimals.get(new Random().nextInt(listStringHexadecimals.size())));
             c.setName(s);
             c.setPopulation(new Random().nextInt(0x1312d00));
             c.setLatitude(

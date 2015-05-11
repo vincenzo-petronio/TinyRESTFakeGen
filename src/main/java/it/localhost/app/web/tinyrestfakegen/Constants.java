@@ -24,4 +24,5 @@ public class Constants {
     public static final String RES_COUNTRIES = "/Countries";
     public static final String RES_EXCHANGES = "/Exchanges";
     public static final String RES_COORDINATES = "/Coordinates";
+    public static final String RES_HEXADECIMALS = "/Hexadecimals";
 }
