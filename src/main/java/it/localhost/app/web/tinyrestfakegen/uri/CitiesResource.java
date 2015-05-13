@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package it.localhost.app.web.tinyrestfakegen.uri;
 
 import com.google.gson.Gson;
@@ -25,7 +20,7 @@ import org.apache.logging.log4j.Logger;
 /**
  * REST Web Service for Cities
  */
-@Path("countries/cities")
+@Path("countries/{country: [a-fA-F0-9]{5,}+}/cities")
 public class CitiesResource {
 
     @Context

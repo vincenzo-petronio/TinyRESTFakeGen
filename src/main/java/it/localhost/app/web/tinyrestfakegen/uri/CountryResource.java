@@ -22,7 +22,7 @@ import org.apache.logging.log4j.Logger;
 /**
  * REST Web Service
  */
-@Path("countries/{country: [a-fA-F0-9]{5,}$}")
+@Path("countries/{country: [a-fA-F0-9]{5,}+}")
 public class CountryResource {
 
     @Context
