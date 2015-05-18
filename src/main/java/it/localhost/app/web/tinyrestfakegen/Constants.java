@@ -15,7 +15,7 @@ public class Constants {
      *
      * @see <a href="http://semver.org/">Semantic Versioning</a>
      */
-    public static final String VERSION = "0.1.1";
+    public static final String VERSION = "0.1.2";
 
     public static final int BUFFEREDREADER_BUFFER_SIZE = 1000;
 
@@ -25,4 +25,8 @@ public class Constants {
     public static final String RES_EXCHANGES = "/Exchanges";
     public static final String RES_COORDINATES = "/Coordinates";
     public static final String RES_HEXADECIMALS = "/Hexadecimals";
+    public static final String RES_NAMES = "/Names";
+    public static final String RES_SURNAMES = "/Surnames";
+    public static final String RES_TELEPHONENUMBERS = "/TelephoneNumbers";
+    public static final String RES_ADDRESSES = "/Addresses";
 }

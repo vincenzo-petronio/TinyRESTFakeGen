@@ -8,6 +8,7 @@
                 <li><a href="api/v1/countries/cities">Cities</a></li>
             </ul>
         </li>
+        <li><a href="api/v1/users">Users</a>
     </ul>
 </body>
 </html>
