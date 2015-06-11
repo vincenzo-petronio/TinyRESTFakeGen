@@ -5,9 +5,14 @@ see implementation details http://jersey.java.net/nonav/documentation/latest/jax
     <servlet>
         <servlet-name>Jersey Web Application</servlet-name>
         <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
-        <init-param>
+        <!-- This doesn't work in JBoss7/WildFly8 -->
+        <!--init-param>
             <param-name>jersey.config.server.provider.packages</param-name>
             <param-value>it.localhost.app.web.tinyrestfakegen</param-value>
+        </init-param-->
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>it.localhost.app.web.tinyrestfakegen.ApplicationConfig</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -18,5 +23,17 @@ see implementation details http://jersey.java.net/nonav/documentation/latest/jax
     <context-param>   
         <param-name>log4jConfiguration</param-name>
         <param-value>log4j2.xml</param-value>
+    </context-param>
+    <context-param>
+        <param-name>resteasy.scan</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <context-param>
+        <param-name>resteasy.scan.providers</param-name>
+        <param-value>false</param-value>
+    </context-param>
+    <context-param>
+        <param-name>resteasy.scan.resources</param-name>
+        <param-value>false</param-value>
     </context-param>
 </web-app>
